@@ -54,6 +54,7 @@
     </mat-card-actions>
     <div class="button-reserve" >
       <button mat-raised-button
+              (click)="openDialog()"
               [style.opacity]="service?.available ? 1 : 0.2"
               [disabled]="!service?.available" >Reserve</button>
     </div>

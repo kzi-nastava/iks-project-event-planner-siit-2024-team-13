@@ -7,6 +7,8 @@ import {forkJoin, switchMap} from 'rxjs';
 import {AuthService} from '../../auth/auth.service';
 import {HttpErrorResponse} from '@angular/common/http';
 import {ToastrService} from 'ngx-toastr';
+import { ServiceReservationDialogComponent } from '../service-reservation-dialog/service-reservation-dialog.component';
+import { MatDialog } from '@angular/material/dialog';
 
 @Component({
   selector: 'app-service-details',
@@ -23,6 +25,7 @@ export class ServiceDetailsComponent implements OnInit {
     private authService: AuthService,
     private toasterService: ToastrService,
     private router: Router,
+    private dialog: MatDialog
   ) {
   }
 
@@ -69,6 +72,14 @@ export class ServiceDetailsComponent implements OnInit {
       });
     });
   }
+
+  openDialog(): void {
+      let dialog = this.dialog.open(ServiceReservationDialogComponent, {
+        height: '500px',
+        width: '600px',
+      });
+  
+    }
 
   toggleFavouriteService(): void {
     if(this.isFavourite) {

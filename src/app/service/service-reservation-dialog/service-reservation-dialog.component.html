@@ -1,0 +1,22 @@
+<h2 mat-dialog-title>Reserve service</h2>
+<mat-dialog-content [formGroup]="reservationForm">
+
+  <mat-form-field>
+    <mat-label>From: </mat-label>
+    <input matInput [ngxTimepicker]="pickerFrom" formControlName="startingTime">
+    <ngx-material-timepicker-toggle [for]="pickerFrom"></ngx-material-timepicker-toggle>
+    <ngx-material-timepicker #pickerFrom></ngx-material-timepicker>
+  </mat-form-field>
+
+  <mat-form-field>
+    <mat-label>To: </mat-label>
+    <input matInput [ngxTimepicker]="pickerTo" formControlName="endingTime">
+    <ngx-material-timepicker-toggle [for]="pickerTo"></ngx-material-timepicker-toggle>
+    <ngx-material-timepicker #pickerTo></ngx-material-timepicker>
+  </mat-form-field>
+
+</mat-dialog-content>
+
+<mat-dialog-actions>
+  <button mat-button (click)="reserve()">Reserve service</button>
+</mat-dialog-actions>
